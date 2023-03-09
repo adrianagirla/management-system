@@ -1,0 +1,22 @@
+
+.mat-icon {
+    cursor: pointer;
+}
+
+tr.mat-row.example-detail-row {
+    height: 0;
+  }
+   
+  .example-element-detail {
+    overflow: hidden;
+  }
+
+  .details{
+    border-bottom: 2px dotted #2D095E;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    div>span{
+      font-weight: 600;
+    }
+  }

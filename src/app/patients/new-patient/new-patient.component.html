@@ -1,0 +1,93 @@
+<div class="card">
+    <div class="header">New Patient</div>
+    <form [formGroup]="newPatientForm" class="content-1">
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput pattern="[a-zA-Z ]*"
+                   formControlName="firstName" 
+                   name="firstName" />
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="firstName.errors">{{nameErrorMessage("firstName")}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" pattern="[a-zA-Z ]*" />
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="lastName.errors">{{nameErrorMessage("lastName")}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>IDN</mat-label>
+            <input matInput formControlName="idn" pattern="[0-9]*" />
+            <mat-icon matSuffix>badge</mat-icon>
+            <mat-hint>{{ idn.value.length }} / 13</mat-hint>
+            <mat-error *ngIf="idn.errors">{{idnErrorMessage()}}</mat-error>
+         
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Diagnosis</mat-label>
+            <input matInput value="Diabetes" />
+            <mat-icon matSuffix>medical_services</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>gender</mat-label>
+            <mat-select formControlName="gender">
+                <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>varsta</mat-label>
+            <input matInput formControlName="age" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="07-000-00-000" formControlName="phone" pattern="[0-9]*" />
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-error *ngIf="lastName.errors">{{phoneErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="mail" />
+            <mat-icon matSuffix>mail</mat-icon>
+            <mat-error *ngIf="lastName.errors">{{emailErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>job</mat-label>
+            <input matInput formControlName="job" />
+            <mat-icon matSuffix>work_outline</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Area</mat-label>
+            <mat-select disableRipple formControlName="teritory">
+                <mat-option value="urban">Urban</mat-option>
+                <mat-option value="rural">Rural</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>city</mat-label>
+            <input matInput formControlName="city" />
+            <mat-icon matSuffix>location_city</mat-icon>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>adress</mat-label>
+            <input matInput formControlName="adress" />
+            <mat-icon matSuffix>place</mat-icon>
+        </mat-form-field>
+    </form>
+   
+</div>
+<div class="action">
+    <button class="card-button" type="submit" (click)="newPatient()"mat-dialog-close>Save</button>
+    <button class="card-button" mat-dialog-close>Cancel</button>
+</div>

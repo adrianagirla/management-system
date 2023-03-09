@@ -1,0 +1,47 @@
+  <div class="card">
+    <div class="header" *ngIf="!app">New Appointment</div>
+    <div class="header" *ngIf="app">Update appointment for {{app.patient.firstName}} {{app.patient.lastName}}</div>
+    <form [formGroup]="newAppointmentForm" class="content-2">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Patient</mat-label>
+        <input type="text" matInput formControlName="patient" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.firstName}} {{option.lastName}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Procedure</mat-label>
+        <mat-select formControlName="procedure">
+          <mat-option *ngFor="let proced of procedures" value={{proced}}>{{proced}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" [matDatepickerFilter]="myFilter" formControlName="date"
+          (dateChange)="getTimeSlots()">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Time</mat-label>
+        <mat-select formControlName="time">
+          <mat-option *ngFor="let timeSlot of timeSlots " value={{timeSlot.slot}}
+            (onSelectionChange)="getSelectedSlot(timeSlot)"
+            [disabled]="timeSlot.isBooked">{{timeSlot.slot}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </form>
+  </div>
+  <div class="action">
+    <button class="card-button" [mat-dialog-close]="true" type="submit" (click)="addAppointment()">Save</button>
+    <button class="card-button" mat-dialog-close>Cancel</button>
+  </div>
+
+ 

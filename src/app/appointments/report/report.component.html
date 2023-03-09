@@ -1,0 +1,74 @@
+<div class="report" id="pdfReport" #pdfReport>
+    <div  class="report-header">Medical Report</div> 
+        <div class="general-info">
+            <div>
+                <ul>
+                    <li ><strong>Patient</strong></li>
+                    <li><strong>Name:</strong>{{appointment.patient.firstName}} {{appointment.patient.lastName}}</li>
+                    <li><strong>Age:</strong> {{appointment.patient.age}} years old</li>
+                    <li><strong>IDN:</strong> {{appointment.patient.idn}}</li>
+                </ul>
+
+            </div>
+            <div><strong>{{appointment.date | date}}</strong> </div>
+            <div>
+                 <ul>
+                    <li><strong>Doctor</strong></li>
+                    <li>Michael Turkav, MD Cardiologist</li>
+                    <li><strong>phone:</strong> 0758954566</li>
+                    <li> <strong>email:</strong> dr.turkav@gmail.com</li>
+                      </ul>
+            </div>
+        </div>
+        
+<div class="report-content">
+           <form>
+            
+            <h3>Diagnosis</h3>
+            <mat-form-field  appearance="fill">
+             
+                <textarea matInput
+                          cdkTextareaAutosize
+                          #autosize="cdkTextareaAutosize"
+                          cdkAutosizeMinRows="1"
+                          ></textarea>
+              </mat-form-field>
+
+
+            <h3>History</h3>
+            <mat-form-field  appearance="fill">
+             
+                <textarea matInput
+                          cdkTextareaAutosize
+                          #autosize="cdkTextareaAutosize"
+                          cdkAutosizeMinRows="1"
+                          ></textarea>
+              </mat-form-field>
+             <h3>Clinical Examination</h3>
+             <mat-form-field  appearance="fill">
+             
+                <textarea matInput
+                          cdkTextareaAutosize
+                          #autosize="cdkTextareaAutosize"
+                          cdkAutosizeMinRows="1"
+                          ></textarea>
+              </mat-form-field>    
+                <h3>Treatment</h3>
+                <mat-form-field  appearance="fill">
+             
+                    <textarea matInput
+                              cdkTextareaAutosize
+                              #autosize="cdkTextareaAutosize"
+                              cdkAutosizeMinRows="1"
+                              ></textarea>
+                  </mat-form-field>
+             
+           </form>
+           
+        </div>
+    </div>
+    <div class="action">
+
+        <button class="card-button">Save</button>
+        <button (click)="openPDF()" class="card-button"> extraxt pdf</button>
+    </div>

@@ -1,0 +1,177 @@
+@import 'palette';
+
+//Mat-form-field
+
+.mat-form-field {
+    margin: $default-margin;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    padding-bottom: 0;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline,
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline,
+.mat-form-field-appearance-fill .mat-form-field-flex,
+.mat-form-field-appearance-fill.mat-focused .mat-form-field-flex {
+    color: $accent-color;
+    background-color: $white-color;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label,
+.mat-form-field-label,
+.mat-form-field-underline,
+.mat-form-field-appearance-fill.mat-focused .mat-form-field-underline,
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: $accent-color;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-underline::before {
+    background-color: $accent-color;
+}
+
+
+.mat-error,
+.mat-hint {
+    padding-top: 15px;
+}
+
+.mat-input-element {
+    caret-color: $accent-color;
+    color: $font-color;
+}
+
+.mat-icon,
+.mat-select-arrow {
+    color: $primary-color;
+}
+
+.mat-icon {
+
+    &:hover,
+    &:focus {
+        color: $accent-color;
+    }
+}
+
+//Mat-Select
+.mat-select-panel {
+
+    .mat-option {
+        background-color: $light-color;
+        color: $font-color;
+    }
+
+    .mat-option.mat-selected:not(.mat-option-multiple) {
+        background-color: $secondary-color;
+    }
+
+    .mat-option:hover,
+    .mat-option:focus {
+        background-color: $secondary-color;
+        color: $accent-color;
+    }
+
+    .mat-option.mat-option-disabled {
+        color: $light-color;
+        background-color: $secondary-color;
+    }
+}
+
+.mat-select-value {
+    color: $font-color;
+}
+
+//Table
+
+.mat-table {
+    width: 80%;
+    box-shadow: 0px 0px 0.5px 0.5px $accent-color;
+    border-radius: $card-radius;
+    margin-left: 10%;
+
+}
+
+
+tr.mat-header-row {
+    background-color: $accent-color;
+    height: $row-height;
+
+}
+
+.mat-row:nth-child(2n) {
+    background-color: $light-color;
+}
+
+
+.mat-tooltip {
+    background-color: $primary-color;
+}
+
+td.mat-cell {
+    color: $font-color;
+
+}
+
+th.mat-header-cell {
+    color: white;
+}
+
+.mat-paginator {
+    color: $accent-color;
+    margin-right: 15%;
+}
+
+//tabs
+.mat-tab-group {
+    margin: $default-margin 10%;
+
+    .mat-ink-bar {
+        display: none;
+    }
+
+    .mat-tab-header {
+        border-bottom: 3px solid $primary-color;
+    }
+
+    .mat-tab-label {
+        @extend .card-button;
+        margin: $default-margin;
+        width: 200px;
+    }
+
+    .mat-tab-label:focus {
+        background-color: $primary-color;
+        color: white;
+    }
+}
+
+// Toolbar
+
+
+.mat-toolbar {
+    @include flex-display(end);
+    background-color: $light-color;
+
+    ul {
+        @include flex-display(center);
+        list-style-type: none;
+
+        li {
+            padding: 10px;
+
+            a {
+                text-decoration: none;
+                color: $primary-color;
+                letter-spacing: 1px;
+            }
+
+            a:hover,
+            a:focus {
+                color: $accent-color;
+                font-weight: bolder;
+                border-bottom: 3px solid $primary-color
+            }
+        }
+    }
+}

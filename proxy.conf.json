@@ -1,0 +1,10 @@
+{
+    "/api": {
+      "target": "http://85.204.43.254:9090/nists",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }

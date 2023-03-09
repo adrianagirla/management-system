@@ -1,0 +1,124 @@
+//Colors
+
+$primary-color: #604486;
+$secondary-color: #C5B9D6;
+$accent-color: #2D095E;
+$light-color: #f9f8fe;
+$font-color: #4D4E5B;
+$white-color: white;
+
+//
+$card-radius: 3px;
+$btn-radius: 8px;
+$row-height: 50px;
+$btn-height: 40px;
+$default-margin:20px;
+
+//
+$font-lg: 20px;
+$font-md: 14px;
+$font-sz: 12px;
+
+//
+@mixin flex-display($justify){
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
+
+@mixin border-top-radius{
+    border-top-left-radius: $card-radius;
+    border-top-right-radius: $card-radius;
+}
+
+@mixin grid-content($grid-col){
+    margin:   20px;
+    display: grid;
+    grid-template-columns: $grid-col;
+}
+
+.action{
+    @include flex-display(center);
+    }
+
+.action-button{
+    height: $default-margin;
+    width: $default-margin;
+    background-color: transparent;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+ }
+
+ .card{
+    padding: 0;
+    border-radius: $card-radius;
+    box-shadow: 0px 0px 2px 0.5px $accent-color;
+    background-color: $light-color;
+}
+
+.card-button{
+    width: 300px;
+    height: $btn-height;
+    border-radius: $btn-radius;
+    background-color: $secondary-color;
+    color: $accent-color;
+    border: 2px solid $primary-color;
+    font-size: $font-md;
+    font-weight: bold;
+    margin: 0 $default-margin ;
+    cursor: pointer;
+
+    &:hover,
+    &:focus{
+        color: $white-color;
+    }
+
+    &:hover{
+        background-color: $primary-color;
+    }
+    &:focus{
+        background-color: $accent-color;
+    }}
+
+    
+.content-1{
+    @include grid-content(1fr 1fr 1fr)
+}
+
+.content-2{
+    @include grid-content(1fr 1fr)
+}
+
+.header{
+    background-color: $accent-color;
+    color: $white-color;
+    height: $btn-height;
+    @include flex-display(center);
+    @include border-top-radius;
+    font-size: $font-md;
+}
+
+.search{
+    width: 80%;
+    margin-left: 10%;
+    @include flex-display(space-between);
+    align-items: center;
+    padding: 10px 0;
+    .mat-form-field{
+        width: 40%;
+    }
+}
+
+
+@media only screen and (max-width: 700px) {
+    .content-1, .content-2{
+        @include grid-content(1fr)
+    }
+ }
+
+ @media only screen and (min-width:700px) and (max-width: 1060px) {
+    .content-1{
+        @include grid-content(1fr 1fr)
+    }
+ }

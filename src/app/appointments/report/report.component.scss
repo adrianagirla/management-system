@@ -1,0 +1,51 @@
+.report{
+padding: 2rem;
+}
+
+.report-header{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 50px;
+    font-weight: 800;
+    letter-spacing: 0.25pc;
+    margin: 1rem;
+}
+
+.report-content{
+    padding: 1rem;
+}
+
+h3{
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: x-large;
+}
+
+ul{
+    list-style-type: none;
+    li{
+        padding: 10px;
+        
+    }
+}
+.general-info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    font-size: x-large;
+   
+}
+
+textarea{
+    width: 100%;
+    
+    border-bottom: 1px dotted blac;
+   
+}
+
+.mat-form-field{
+    width: 100%;
+    margin: 0;
+}

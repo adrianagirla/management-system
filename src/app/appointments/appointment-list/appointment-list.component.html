@@ -1,0 +1,67 @@
+<div class="search">
+    <mat-form-field appearance="outline"  >
+        <mat-label>Search a patient</mat-label> 
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Michael" #input>
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <button class="card-button" (click)="newAppointment()">New appointment</button>
+</div>
+<table mat-table  [dataSource]="dataSource"  matSort (matSortChange)="announceSortChange($event )">
+   
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date </th>
+        <td mat-cell *matCellDef="let app"> {{app.date | date}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef>Time </th>
+        <td mat-cell *matCellDef="let app ">{{app.time}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>First Name </th>
+        <td mat-cell *matCellDef="let app" >{{app.patient.firstName}}  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name </th>
+        <td mat-cell *matCellDef="let app">{{app.patient.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="diagnosis">
+        <th mat-header-cell *matHeaderCellDef>Diagnosis </th>
+        <td mat-cell *matCellDef="let app"> {{app.patient.diagnosis}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="procedure">
+        <th mat-header-cell *matHeaderCellDef>Procedure</th>
+        <td mat-cell *matCellDef="let app">{{app.procedure}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="medical report">
+        <th mat-header-cell *matHeaderCellDef> Medical Report </th>
+        <td mat-cell *matCellDef="let appointment">
+            <button class="action-button" 
+                    matTooltip="Edit" matTooltipClass="tooltip"  
+                    (click)="updateAppointment(appointment)">
+                <mat-icon>edit</mat-icon> 
+            </button>  
+            <button  class="action-button"
+                    matTooltip="Delete" matTooltipClass="tooltip"
+                    (click)="deleteAppointment(appointment.id)"  >
+                    <mat-icon>delete</mat-icon>
+            </button>
+            <button class="action-button"  
+                    matTooltip="Medical Report" matTooltipClass="tooltip" >
+                    <a [routerLink]="['/appointments/',appointment.id]"> 
+                    <mat-icon >article</mat-icon></a>   
+            </button>   
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
+
+
+</table>
+<mat-paginator  [pageSize]="15" aria-label="Select page of appointments"></mat-paginator>

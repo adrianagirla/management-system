@@ -1,0 +1,24 @@
+@import '/src/assets/styles/palette';
+ 
+
+ .link-card {
+    width: 250px;
+    height: 167px;
+    border: 2px solid $accent-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    
+ }
+
+.link-card:hover{
+    background-color: $light-color;
+}
+
+ img{
+    width: 150px;
+    height: 100px;
+    object-fit: contain;
+ }
+
