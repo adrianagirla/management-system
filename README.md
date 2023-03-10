@@ -5,15 +5,22 @@ This project is an appointment management system dedicated to medical specialist
 The main functionalities are:
 -CRUD operations on appointments:
                                        -add new appointment
-                                       -display all appointments
-                                       -display today appointments
-                                       -display appointments from current week (working on)
-                                       -delete appointment
-                                       -update appointment
+                                       (you choose a registered  patient and a procedure, pick a date (mockup data only for: 9 mar 2023 - 17 mar 2023), and there will be available time slots specific for chosen date);
+                                        -display all appointments;
+                                       - sort appointments by date;
+                                       -  display today appointments;
+                                       - display appointments from current week (working on);
+                                       - delete and update an appointment;
+                                       - generate medical report for specific appointment , export as pdf the report.;
                      and patients :
-                                        -add new patient
-                                       - display all patients
-                                   
+                                        -add new patient;
+                                       - display all patients ;
+                                       - sort patients by first name and last name;
+                                       - search a patient by first name and last name.
+
+
+
+
 
 
 
